@@ -6,41 +6,26 @@ DROP TABLE IF EXISTS Ferias;
 DROP TABLE IF EXISTS Asesores;
 DROP TABLE IF EXISTS Alumnos;
 DROP TABLE IF EXISTS Proyectos;
-DROP TABLE IF EXISTS Usuarios;
-
-CREATE TABLE Usuarios(
-	IDUsuario INT PRIMARY KEY,
-    Usuario VARCHAR(45),
-    Contraseña VARCHAR(45)
-);
 
 CREATE TABLE Proyectos(
 	IDproyecto INT PRIMARY KEY,
-    Nombre VARCHAR(45),
+    NombreProyecto VARCHAR(45),
     Categoria VARCHAR(45)
 );
 
 CREATE TABLE Alumnos(
 	IDAlumno INT PRIMARY KEY,
-    Nombre VARCHAR(45),
-    IDUsuario INT,
-    IDProyecto INT,
-    FOREIGN KEY(IDUsuario) REFERENCES Usuarios(IDUsuario),
-    FOREIGN KEY(IDProyecto) REFERENCES Proyectos(IDProyecto)
+    NombreAlumno VARCHAR(45)
 );
 
 CREATE TABLE Asesores(
 	IDAsesor INT PRIMARY KEY,
-    Nombre VARCHAR(45),
-    IDUsuario INT,
-    IDProyecto INT,
-    FOREIGN KEY(IDUsuario) REFERENCES Usuarios(IDUsuario),
-    FOREIGN KEY(IDProyecto) REFERENCES Proyectos(IDProyecto)
+    NombreAsesor VARCHAR(45)
 );
 
 CREATE TABLE Ferias(
 	IDFeria INT PRIMARY KEY,
-    Nombre VARCHAR(45),
+    NombreFeria VARCHAR(45),
     Fecha VARCHAR(45)
 );
 
@@ -51,29 +36,29 @@ CREATE TABLE Apoyos(
 );
 
 CREATE TABLE AlumnoPorProyecto(
-    IDAlumno INT,
-    IDProyecto INT,
-	FOREIGN KEY(IDAlumno) REFERENCES Alumnos(IDAlumno),
-    FOREIGN KEY(IDProyecto) REFERENCES Proyectos(IDProyecto),
-    PRIMARY KEY(IDAlumno, IDProyecto)
+    IDAlumnoProyecto INT,
+    IDProyectoAlumno INT,
+	FOREIGN KEY(IDAlumnoProyecto) REFERENCES Alumnos(IDAlumno),
+    FOREIGN KEY(IDProyectoAlumno) REFERENCES Proyectos(IDProyecto),
+    PRIMARY KEY(IDAlumnoProyecto, IDProyectoAlumno)
 );
 
 CREATE TABLE ProyectoPorFeria(
-    IDProyecto INT,
-    IDFeria INT,
-	FOREIGN KEY(IDProyecto) REFERENCES Proyectos(IDProyecto),
-    FOREIGN KEY(IDFeria) REFERENCES Ferias(IDFeria),
-    PRIMARY KEY(IDProyecto, IDFeria)
+    IDProyectoFeria INT,
+    IDFeriaProyecto INT,
+	FOREIGN KEY(IDProyectoFeria) REFERENCES Proyectos(IDProyecto),
+    FOREIGN KEY(IDFeriaProyecto) REFERENCES Ferias(IDFeria),
+    PRIMARY KEY(IDProyectoFeria, IDFeriaProyecto)
 );
 
 CREATE TABLE AlumnoPorFeria(
-	IDAlumno INT,
-    IDFeria INT,
-    IDApoyo INT,
+	IDAlumnoFeria INT,
+    IDFeriaAlumno INT,
+    IDApoyoAlumnoFeria INT,
     Premio VARCHAR(45),
-	FOREIGN KEY(IDAlumno) REFERENCES Alumnos(IDAlumno),
-    FOREIGN KEY(IDFeria) REFERENCES Ferias(IDFeria),
-    FOREIGN KEY(IDApoyo) REFERENCES Apoyos(IDApoyo),
-    PRIMARY KEY(IDAlumno, IDFeria)
+	FOREIGN KEY(IDAlumnoFeria) REFERENCES Alumnos(IDAlumno),
+    FOREIGN KEY(IDFeriaAlumno) REFERENCES Ferias(IDFeria),
+    FOREIGN KEY(IDApoyoAlumnoFeria) REFERENCES Apoyos(IDApoyo),
+    PRIMARY KEY(IDAlumnoFeria, IDFeriaAlumno)
 );
 

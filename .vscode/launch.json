@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CcarreguinApplication<ccarreguin>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ccarreguin.ccarreguin.CcarreguinApplication",
+            "projectName": "ccarreguin",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
