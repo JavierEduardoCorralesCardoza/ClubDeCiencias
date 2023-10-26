@@ -1,4 +1,4 @@
-
+DROP TABLE IF EXISTS AlumnoPorProyecto;
 DROP TABLE IF EXISTS AlumnoPorFeria;
 DROP TABLE IF EXISTS ProyectoPorFeria;
 DROP TABLE IF EXISTS Apoyos;
