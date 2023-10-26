@@ -1,0 +1,31 @@
+Sign up alumno POST(correo, contraseña; ok)
+
+Sign up asesor POST(correo, contraseña; ok)
+
+Sign in GET(correo; correo, contraseña)
+
+VISTA ALUMNO
+
+Home
+
+Panel de informacion de usuario GET(correo; nombre, edad)
+
+Ultimas ferias asistidas GET(correo; id_feria, nombre_feria, fecha_feria, proyecto)
+
+Registro de feria
+
+Llenado de formulario POST(id_alumno, id_asesor, nombre_feria, fecha_feria, id_proyecto, premio, patrocinador, apoyo otorgado; ok)
+
+VISTA ASESOR
+
+Home
+
+Lista de alumnos GET(//;id_alumno, nombre_alumno, correo_alumno)
+
+Perfil de alumno 
+
+Informacion del alumno GET(id_alumno; nombre_alumno, correo_alumno, foto_alumno, edad_alumno, nombre_proyecto, premio)
+
+Pagina de Filtro
+
+****
