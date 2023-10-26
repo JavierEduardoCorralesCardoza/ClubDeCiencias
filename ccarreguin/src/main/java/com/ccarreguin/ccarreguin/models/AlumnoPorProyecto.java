@@ -2,21 +2,23 @@ package com.ccarreguin.ccarreguin.models;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "AlumnoPorProyecto")
 public class AlumnoPorProyecto {
 
     @EmbeddedId
     private AlumnoPorProyectoId id;
 
     @ManyToOne
-    @MapsId("idAlumnoCompuesto")
+    @JoinColumn(name = "IDAlumnoProyecto", referencedColumnName = "IDAlumno")
     private Alumnos alumno;
 
     @ManyToOne
-    @MapsId("idProyectoCompuesto")
+    @JoinColumn(name = "IDProyectoAlumno", referencedColumnName = "IDProyecto")
     private Proyectos proyecto;
 
     public AlumnoPorProyectoId getId() {

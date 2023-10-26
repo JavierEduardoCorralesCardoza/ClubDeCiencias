@@ -2,16 +2,10 @@ DROP TABLE IF EXISTS AlumnoPorProyecto;
 DROP TABLE IF EXISTS AlumnoPorFeria;
 DROP TABLE IF EXISTS ProyectoPorFeria;
 DROP TABLE IF EXISTS Apoyos;
+DROP TABLE IF EXISTS Proyectos;
 DROP TABLE IF EXISTS Ferias;
 DROP TABLE IF EXISTS Asesores;
 DROP TABLE IF EXISTS Alumnos;
-DROP TABLE IF EXISTS Proyectos;
-
-CREATE TABLE Proyectos(
-	IDproyecto INT PRIMARY KEY,
-    NombreProyecto VARCHAR(45),
-    Categoria VARCHAR(45)
-);
 
 CREATE TABLE Alumnos(
 	IDAlumno INT PRIMARY KEY,
@@ -29,10 +23,12 @@ CREATE TABLE Ferias(
     Fecha VARCHAR(45)
 );
 
-CREATE TABLE Apoyos(
-	IDApoyo INT PRIMARY KEY,
-    Patrocinador VARCHAR(45),
-    ApoyoOtorgado VARCHAR(45)
+CREATE TABLE Proyectos(
+	IDproyecto INT PRIMARY KEY,
+    NombreProyecto VARCHAR(45),
+    Categoria VARCHAR(45),
+    IDAsesorProyecto INT,
+    FOREIGN KEY(IDAsesorProyecto) REFERENCES Asesores(IDAsesor)
 );
 
 CREATE TABLE AlumnoPorProyecto(
@@ -54,11 +50,18 @@ CREATE TABLE ProyectoPorFeria(
 CREATE TABLE AlumnoPorFeria(
 	IDAlumnoFeria INT,
     IDFeriaAlumno INT,
-    IDApoyoAlumnoFeria INT,
     Premio VARCHAR(45),
 	FOREIGN KEY(IDAlumnoFeria) REFERENCES Alumnos(IDAlumno),
     FOREIGN KEY(IDFeriaAlumno) REFERENCES Ferias(IDFeria),
-    FOREIGN KEY(IDApoyoAlumnoFeria) REFERENCES Apoyos(IDApoyo),
     PRIMARY KEY(IDAlumnoFeria, IDFeriaAlumno)
+);
+
+CREATE TABLE Apoyos(
+	IDApoyo INT PRIMARY KEY,
+    Patrocinador VARCHAR(45),
+    ApoyoOtorgado INT,
+    IDAlumnoFeriaApoyo INT,
+    IDFeriaAlumnoApoyo INT,
+    FOREIGN KEY(IDAlumnoFeriaApoyo, IDFeriaAlumnoApoyo) REFERENCES AlumnoPorFeria(IDAlumnoFeria, IDFeriaAlumno)
 );
 
