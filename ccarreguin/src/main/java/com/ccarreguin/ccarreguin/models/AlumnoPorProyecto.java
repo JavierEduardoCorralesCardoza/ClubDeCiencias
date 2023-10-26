@@ -4,6 +4,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,10 +15,12 @@ public class AlumnoPorProyecto {
     private AlumnoPorProyectoId id;
 
     @ManyToOne
+    @MapsId("alumno_id")
     @JoinColumn(name = "IDAlumnoProyecto", referencedColumnName = "IDAlumno")
     private Alumnos alumno;
 
     @ManyToOne
+    @MapsId("proyecto_id")
     @JoinColumn(name = "IDProyectoAlumno", referencedColumnName = "IDProyecto")
     private Proyectos proyecto;
 
