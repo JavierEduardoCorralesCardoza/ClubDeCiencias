@@ -5,27 +5,39 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Apoyos")
 public class Apoyos {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDApoyo")
-    private int idApoyo;
+    private int id_apoyo;
 
     @Column(name = "Patrocinador")
     private String patrocinador;
 
     @Column(name = "ApoyoOtorgado")
-    private String apoyoOtorgado;
+    private int apoyo_otrogado;
 
-    public int getIdApoyo() {
-        return idApoyo;
+    @ManyToOne
+    @JoinColumns({
+        @JoinColumn(name = "IDAlumnoFeriaApoyo", referencedColumnName = "IDAlumnoFeria"),
+        @JoinColumn(name = "IDFeriaAlumnoApoyo", referencedColumnName = "IDFeriaAlumno")
+    })
+    private AlumnoPorFeria alumno_feria;
+
+    public int getId_apoyo() {
+        return id_apoyo;
     }
 
-    public void setIdApoyo(int idApoyo) {
-        this.idApoyo = idApoyo;
+    public void setId_apoyo(int id_apoyo) {
+        this.id_apoyo = id_apoyo;
     }
 
     public String getPatrocinador() {
@@ -36,11 +48,19 @@ public class Apoyos {
         this.patrocinador = patrocinador;
     }
 
-    public String getApoyoOtorgado() {
-        return apoyoOtorgado;
+    public int getApoyo_otrogado() {
+        return apoyo_otrogado;
     }
 
-    public void setApoyoOtorgado(String apoyoOtorgado) {
-        this.apoyoOtorgado = apoyoOtorgado;
+    public void setApoyo_otrogado(int apoyo_otrogado) {
+        this.apoyo_otrogado = apoyo_otrogado;
+    }
+
+    public AlumnoPorFeria getAlumno_feria() {
+        return alumno_feria;
+    }
+
+    public void setAlumno_feria(AlumnoPorFeria alumno_feria) {
+        this.alumno_feria = alumno_feria;
     }
 }

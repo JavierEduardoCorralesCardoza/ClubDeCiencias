@@ -1,39 +1,47 @@
 package com.ccarreguin.ccarreguin.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Ferias")
 public class Ferias {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "IDFeria")
-    private int idFeria;
+    private int id_feria;
 
     @Column(name = "NombreFeria")
-    private String nombreFeria;
+    private String nombre_feria;
 
     @Column(name = "Fecha")
     private String fecha;
 
-    public int getIdFeria() {
-        return idFeria;
+    @OneToMany(mappedBy = "feria")
+    private List<ProyectoPorFeria> proyectos;
+
+    public int getId_feria() {
+        return id_feria;
     }
 
-    public void setIdFeria(int idFeria) {
-        this.idFeria = idFeria;
+    public void setId_feria(int id_feria) {
+        this.id_feria = id_feria;
     }
 
-    public String getNombreFeria() {
-        return nombreFeria;
+    public String getNombre_feria() {
+        return nombre_feria;
     }
 
-    public void setNombreFeria(String nombreFeria) {
-        this.nombreFeria = nombreFeria;
+    public void setNombre_feria(String nombre_feria) {
+        this.nombre_feria = nombre_feria;
     }
 
     public String getFecha() {
@@ -42,5 +50,13 @@ public class Ferias {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public List<ProyectoPorFeria> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(List<ProyectoPorFeria> proyectos) {
+        this.proyectos = proyectos;
     }
 }

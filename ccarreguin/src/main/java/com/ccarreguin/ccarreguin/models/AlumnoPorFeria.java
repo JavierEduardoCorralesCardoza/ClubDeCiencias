@@ -2,24 +2,25 @@ package com.ccarreguin.ccarreguin.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name =  "AlumnoPorFeria")
 public class AlumnoPorFeria {
-
+    
     @EmbeddedId
     private AlumnoPorFeriaId id;
 
     @ManyToOne
-    @Column(name = "idAlumnoCompuesto")
+    @JoinColumn(name = "IDAlumnoFeria", referencedColumnName = "IDAlumno")
     private Alumnos alumno;
 
     @ManyToOne
-    @Column(name = "idFeriaCompuesta")
+    @JoinColumn(name = "IDFeriaAlumno", referencedColumnName = "IDFeria")
     private Ferias feria;
-
-    @ManyToOne
-    @Column(name = "IDApoyoAlumnoFeria")
-    private Apoyos apoyo;
 
     @Column(name = "Premio")
     private String premio;
@@ -46,14 +47,6 @@ public class AlumnoPorFeria {
 
     public void setFeria(Ferias feria) {
         this.feria = feria;
-    }
-
-    public Apoyos getApoyo() {
-        return apoyo;
-    }
-
-    public void setApoyo(Apoyos apoyo) {
-        this.apoyo = apoyo;
     }
 
     public String getPremio() {
