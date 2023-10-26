@@ -4,6 +4,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,10 +15,12 @@ public class ProyectoPorFeria {
     private ProyectoPorFeriaId id;
 
     @ManyToOne
+    @MapsId("proyecto_id")
     @JoinColumn(name = "IDProyectoFeria", referencedColumnName = "IDProyecto")
     private Proyectos proyecto;
 
     @ManyToOne
+    @MapsId("feria_id")
     @JoinColumn(name = "IDFeriaProyecto", referencedColumnName = "IDFeria")
     private Ferias feria;
 

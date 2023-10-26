@@ -2,11 +2,16 @@ package com.ccarreguin.ccarreguin.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class AlumnoPorFeriaId implements Serializable{
+
+    @Column(name = "IDAlumnoFeria")
     private int alumno_id;
+
+    @Column(name = "IDFeriaAlumno")
     private int feria_id;
     
     public int getAlumno_id() {
