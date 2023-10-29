@@ -27,6 +27,16 @@ public class Ferias {
 
     @OneToMany(mappedBy = "feria")
     private List<ProyectoPorFeria> proyectos;
+    
+    public Ferias() {
+    }
+
+    public Ferias(int id_feria, String nombre_feria, String fecha, List<ProyectoPorFeria> proyectos) {
+        this.id_feria = id_feria;
+        this.nombre_feria = nombre_feria;
+        this.fecha = fecha;
+        this.proyectos = proyectos;
+    }
 
     public int getId_feria() {
         return id_feria;

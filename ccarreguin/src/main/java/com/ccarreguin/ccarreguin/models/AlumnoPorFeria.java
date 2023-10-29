@@ -28,6 +28,16 @@ public class AlumnoPorFeria {
     @Column(name = "Premio")
     private String premio;
 
+    public AlumnoPorFeria() {
+    }
+
+    public AlumnoPorFeria(AlumnoPorFeriaId id, Alumnos alumno, Ferias feria, String premio) {
+        this.id = id;
+        this.alumno = alumno;
+        this.feria = feria;
+        this.premio = premio;
+    }
+
     public AlumnoPorFeriaId getId() {
         return id;
     }

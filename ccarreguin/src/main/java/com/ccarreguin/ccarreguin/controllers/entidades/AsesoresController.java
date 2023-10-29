@@ -1,4 +1,4 @@
-package com.ccarreguin.ccarreguin.controllers;
+package com.ccarreguin.ccarreguin.controllers.entidades;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ccarreguin.ccarreguin.models.Asesores;
-import com.ccarreguin.ccarreguin.services.AsesoresServices;
+import com.ccarreguin.ccarreguin.services.entidades.AsesoresServices;
 
 @RestController
 @RequestMapping("/asesores")
