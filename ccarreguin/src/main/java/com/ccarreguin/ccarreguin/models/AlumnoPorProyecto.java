@@ -24,6 +24,15 @@ public class AlumnoPorProyecto {
     @JoinColumn(name = "IDProyectoAlumno", referencedColumnName = "IDProyecto")
     private Proyectos proyecto;
 
+    public AlumnoPorProyecto() {
+    }
+
+    public AlumnoPorProyecto(AlumnoPorProyectoId id, Alumnos alumno, Proyectos proyecto) {
+        this.id = id;
+        this.alumno = alumno;
+        this.proyecto = proyecto;
+    }
+
     public AlumnoPorProyectoId getId() {
         return id;
     }

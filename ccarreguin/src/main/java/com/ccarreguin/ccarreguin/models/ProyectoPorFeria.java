@@ -23,6 +23,15 @@ public class ProyectoPorFeria {
     @MapsId("feria_id")
     @JoinColumn(name = "IDFeriaProyecto", referencedColumnName = "IDFeria")
     private Ferias feria;
+    
+    public ProyectoPorFeria() {
+    }
+
+    public ProyectoPorFeria(ProyectoPorFeriaId id, Proyectos proyecto, Ferias feria) {
+        this.id = id;
+        this.proyecto = proyecto;
+        this.feria = feria;
+    }
 
     public ProyectoPorFeriaId getId() {
         return id;

@@ -32,6 +32,16 @@ public class Apoyos {
     })
     private AlumnoPorFeria alumno_feria;
 
+    public Apoyos() {
+    }
+
+    public Apoyos(int id_apoyo, String patrocinador, int apoyo_otrogado, AlumnoPorFeria alumno_feria) {
+        this.id_apoyo = id_apoyo;
+        this.patrocinador = patrocinador;
+        this.apoyo_otrogado = apoyo_otrogado;
+        this.alumno_feria = alumno_feria;
+    }
+
     public int getId_apoyo() {
         return id_apoyo;
     }

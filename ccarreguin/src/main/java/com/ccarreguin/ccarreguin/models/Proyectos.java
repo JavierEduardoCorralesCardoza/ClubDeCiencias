@@ -37,6 +37,20 @@ public class Proyectos {
     @OneToMany
     private List<ProyectoPorFeria> ferias;
 
+    
+    public Proyectos() {
+    }
+
+    public Proyectos(int id_proyecto, String nombre_proyecto, String categoria, Asesores asesor,
+            List<AlumnoPorProyecto> alumnos, List<ProyectoPorFeria> ferias) {
+        this.id_proyecto = id_proyecto;
+        this.nombre_proyecto = nombre_proyecto;
+        this.categoria = categoria;
+        this.asesor = asesor;
+        this.alumnos = alumnos;
+        this.ferias = ferias;
+    }
+
     public int getId_proyecto() {
         return id_proyecto;
     }

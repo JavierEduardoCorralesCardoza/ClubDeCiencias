@@ -1,7 +1,7 @@
+DROP TABLE IF EXISTS Apoyos;
 DROP TABLE IF EXISTS AlumnoPorProyecto;
 DROP TABLE IF EXISTS AlumnoPorFeria;
 DROP TABLE IF EXISTS ProyectoPorFeria;
-DROP TABLE IF EXISTS Apoyos;
 DROP TABLE IF EXISTS Proyectos;
 DROP TABLE IF EXISTS Ferias;
 DROP TABLE IF EXISTS Asesores;
@@ -9,12 +9,18 @@ DROP TABLE IF EXISTS Alumnos;
 
 CREATE TABLE Alumnos(
 	IDAlumno INT PRIMARY KEY AUTO_INCREMENT,
-    NombreAlumno VARCHAR(45)
+    CorreoAlumno VARCHAR(45),
+    ContrasenaAlumno VARCHAR(45),
+    NombreAlumno VARCHAR(45),
+    ImagenAlumno VARCHAR(45)
 );
 
 CREATE TABLE Asesores(
 	IDAsesor INT PRIMARY KEY AUTO_INCREMENT,
-    NombreAsesor VARCHAR(45)
+    CorreoAsesor VARCHAR(45),
+    ContrasenaAsesor VARCHAR(45),
+    NombreAsesor VARCHAR(45),
+    ImagenAsesor VARCHAR(45)
 );
 
 CREATE TABLE Ferias(

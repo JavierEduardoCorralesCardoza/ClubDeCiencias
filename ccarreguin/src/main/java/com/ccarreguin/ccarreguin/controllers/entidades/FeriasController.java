@@ -1,4 +1,4 @@
-package com.ccarreguin.ccarreguin.controllers;
+package com.ccarreguin.ccarreguin.controllers.entidades;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ccarreguin.ccarreguin.models.Ferias;
-import com.ccarreguin.ccarreguin.services.FeriasServices;
+import com.ccarreguin.ccarreguin.services.entidades.FeriasServices;
 
 @RestController
 @RequestMapping("/ferias")

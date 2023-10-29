@@ -1,4 +1,4 @@
-package com.ccarreguin.ccarreguin.services;
+package com.ccarreguin.ccarreguin.services.entidades;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ccarreguin.ccarreguin.models.Proyectos;
-import com.ccarreguin.ccarreguin.repositories.ProyectosRepository;
+import com.ccarreguin.ccarreguin.repositories.entidades.ProyectosRepository;
 
 @Service
 public class ProyectosServices {
