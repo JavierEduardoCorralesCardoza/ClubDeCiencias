@@ -1,14 +1,24 @@
 import React, { useState } from "react";
-import registroDeUsusarios from "../Services/registroDeUsuarios";
+import registroDeUsuarios from "../Services/registroDeUsuarios";
+import { Navigate } from "react-router-dom";
 
 function SignUp(){
     const [usuario, setUsuario] = useState({correo:"", contrasena:"", nombre:"", jerarquia:""});
+    const [navegar, setNavegar] = useState(false);
+
+    if(navegar){
+        if(usuario.jerarquia === "alumno"){
+            return <Navigate to={`/alumno/${usuario.correo}`}/>
+        }
+        return <Navigate to={`/asesor/${usuario.correo}`}/>
+    }
 
     return(
         <div>
             <form onSubmit={(event) => {
                 event.preventDefault();
-                registroDeUsusarios(usuario);
+                registroDeUsuarios(usuario);
+                setNavegar(true);
             }}>
                 <label>
                     Correo:

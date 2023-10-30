@@ -1,5 +1,8 @@
 package com.ccarreguin.ccarreguin.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,15 +45,21 @@ public class UsuarioServices {
         return true;
     }
 
-    public String ingresarUsuario(String correo){
+    public List<String> ingresarUsuario(String correo){
         Alumnos alumno_existente = alumnos_repository.findByCorreoAlumno(correo);
         Asesores asesor_existente = asesores_repository.findByCorreoAsesor(correo);
 
+        List<String> datos = new ArrayList<>();
+
         if(alumno_existente != null){
-            return alumno_existente.getContrasena_alumno();
+            datos.add(alumno_existente.getContrasena_alumno());
+            datos.add("alumno");
+            return datos;
         }
         else if(asesor_existente != null){
-            return asesor_existente.getContrasena_asesor();
+            datos.add(asesor_existente.getContrasena_asesor());
+            datos.add("asesor");
+            return datos;
         }
 
         return null;
