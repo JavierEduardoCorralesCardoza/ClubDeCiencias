@@ -1,19 +1,24 @@
 package com.ccarreguin.ccarreguin.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ccarreguin.ccarreguin.clases.Autenticacion;
 import com.ccarreguin.ccarreguin.clases.Usuario;
 import com.ccarreguin.ccarreguin.services.UsuarioServices;
 
-@Controller
+@CrossOrigin("*")
+@RestController
 @RequestMapping("/home")
 public class homeController {
 
@@ -37,13 +42,13 @@ public class homeController {
     }
 
     @GetMapping("/signin")
-    public ResponseEntity<Boolean> signin(@RequestBody Autenticacion auth){
-        String res = usuario_services.ingresarUsuario(auth.getCorreo());
+    public ResponseEntity<List<String>> signin(@RequestParam(value = "correo") String correo, @RequestParam(value = "contrasena") String contrasena){
+        List<String> res = usuario_services.ingresarUsuario(correo);
 
-        if(res.equals(auth.getContrasena())){
-            return new ResponseEntity<Boolean>(true, HttpStatus.ACCEPTED);
+        if(res.get(0).equals(contrasena)){
+            return new ResponseEntity<List<String>>(res, HttpStatus.ACCEPTED);
         }
 
-        return new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<List<String>>(res, HttpStatus.BAD_REQUEST);
     }
 }

@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3001/home/signup";
 
-async function registroDeUsusarios(usuario){
+async function registroDeUsuarios(usuario){
     try{
         const response = await fetch(API_URL, {
             method: "POST",
@@ -16,6 +16,7 @@ async function registroDeUsusarios(usuario){
             })
         });
 
+        console.log('Status:', response.status);
         const data = await response.json();
         return data;
     }
@@ -25,4 +26,4 @@ async function registroDeUsusarios(usuario){
     }
 }
 
-export default registroDeUsusarios;
+export default registroDeUsuarios;
