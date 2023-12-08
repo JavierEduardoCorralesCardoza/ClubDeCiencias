@@ -1,8 +1,8 @@
-const API_URL = "http://localhost:3001/home/signin";
+const API_URL = "http://localhost:3001/asesores/getAsesores";
 
-async function ingresoDeUsuario(auth){
+async function informacionDeUsuario(){
     try{
-        const response = await fetch(`${API_URL}?id=${encodeURIComponent(auth.id)}&contrasena=${encodeURIComponent(auth.contrasena)}`, {
+        const response = await fetch(API_URL, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -23,4 +23,4 @@ async function ingresoDeUsuario(auth){
     }
 }
 
-export default ingresoDeUsuario;
+export default informacionDeUsuario;

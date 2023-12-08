@@ -9,16 +9,16 @@ import jakarta.persistence.Embeddable;
 public class AlumnoPorFeriaId implements Serializable{
 
     @Column(name = "IDAlumnoFeria")
-    private int alumno_id;
+    private String alumno_correo;
 
     @Column(name = "IDFeriaAlumno")
     private int feria_id;
     
-    public int getAlumno_id() {
-        return alumno_id;
+    public String getAlumno_id() {
+        return alumno_correo;
     }
-    public void setAlumno_id(int alumno_id) {
-        this.alumno_id = alumno_id;
+    public void setAlumno_id(String alumno_correo) {
+        this.alumno_correo = alumno_correo;
     }
     public int getFeria_id() {
         return feria_id;

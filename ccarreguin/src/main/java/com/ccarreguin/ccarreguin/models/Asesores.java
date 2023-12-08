@@ -15,10 +15,6 @@ import jakarta.persistence.Table;
 public class Asesores {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDAsesor")
-    private int id_asesores;
-
     @Column(name = "CorreoAsesor")
     private String correoAsesor;
 
@@ -44,9 +40,8 @@ public class Asesores {
         this.imagen_asesor = imagen_asesor;
     }
 
-    public Asesores(int id_asesores, String correoAsesor, String contrasena_asesor, String nombre_asesor,
+    public Asesores(String correoAsesor, String contrasena_asesor, String nombre_asesor,
             String imagen_asesor, List<Proyectos> proyectos) {
-        this.id_asesores = id_asesores;
         this.correoAsesor = correoAsesor;
         this.contrasena_asesor = contrasena_asesor;
         this.nombre_asesor = nombre_asesor;
@@ -76,14 +71,6 @@ public class Asesores {
 
     public void setImagen_asesor(String imagen_asesor) {
         this.imagen_asesor = imagen_asesor;
-    }
-
-    public int getId_asesores() {
-        return id_asesores;
-    }
-
-    public void setId_asesores(int id_asesores) {
-        this.id_asesores = id_asesores;
     }
 
     public String getNombre_asesor() {

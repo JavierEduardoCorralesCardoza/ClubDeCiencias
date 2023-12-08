@@ -3,7 +3,7 @@ import ingresoDeUsuario from "../Services/ingresoDeUsuario";
 import { Navigate } from "react-router-dom";
 
 function SignIn(){
-    const [auth, setAuth] = useState({correo: "", contrasena: ""});
+    const [auth, setAuth] = useState({id: "", contrasena: ""});
     const [ruta, setRuta] = useState(null);
     const [navegar, setNavegar] = useState(false);
 
@@ -13,10 +13,10 @@ function SignIn(){
 
         if(respuesta){
             if(respuesta[1] === "alumno"){
-                setRuta(`/alumno/${auth.correo}`);
+                setRuta(`/alumno/${auth.id}`);
             }
             else{
-                setRuta(`/asesor/${auth.correo}`);
+                setRuta(`/asesor/${auth.id}`);
             }
 
             setNavegar(true);
@@ -32,7 +32,7 @@ function SignIn(){
             <form onSubmit={envioForms}>
                 <label>
                     Correo:
-                    <input type="text" value={auth.correo} onChange={e => setAuth({...auth, correo: e.target.value})}/>
+                    <input type="text" value={auth.id} onChange={e => setAuth({...auth, id: e.target.value})}/>
                 </label>
                 <label>
                     Contrasena:

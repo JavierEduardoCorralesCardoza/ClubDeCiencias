@@ -10,15 +10,16 @@ import com.ccarreguin.ccarreguin.repositories.entidades.AsesoresRepository;
 
 @Service
 public class AsesoresServices {
-    
+
     private final AsesoresRepository asesores_repository;
 
     @Autowired
-    public AsesoresServices(AsesoresRepository asesores_repository){
+    public AsesoresServices(AsesoresRepository asesores_repository) {
         this.asesores_repository = asesores_repository;
     }
 
-    public List<Asesores> obtenerAsesores(){
+    public List<Asesores> getAsesores(){
+
         return asesores_repository.findAll();
     }
 }

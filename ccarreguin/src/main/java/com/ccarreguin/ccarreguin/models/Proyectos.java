@@ -28,7 +28,7 @@ public class Proyectos {
     private String categoria;
 
     @ManyToOne
-    @JoinColumn(name = "IDAsesorProyecto", referencedColumnName = "IDAsesor")
+    @JoinColumn(name = "IDAsesorProyecto", referencedColumnName = "CorreoAsesor")
     private Asesores asesor;
 
     @OneToMany(mappedBy = "proyecto")

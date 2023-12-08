@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3001/home/signup";
 
-async function registroDeUsuarios(usuario){
+async function postAlumnoPorProyecto(usuario){
     try{
         const response = await fetch(API_URL, {
             method: "POST",
@@ -30,4 +30,4 @@ async function registroDeUsuarios(usuario){
     }
 }
 
-export default registroDeUsuarios;
+export default postAlumnoPorProyecto;

@@ -25,9 +25,9 @@ public class UsuarioServices {
     }
 
     public boolean agregarUsuarios(Usuario usuario){
-        Alumnos alumno_existente = alumnos_repository.findByCorreoAlumno(usuario.getCorreo());
-        Asesores asesor_existente = asesores_repository.findByCorreoAsesor(usuario.getCorreo());
-
+        Alumnos alumno_existente = alumnos_repository.findById(usuario.getCorreo()).orElse(null);
+        Asesores asesor_existente = asesores_repository.findById(usuario.getCorreo()).orElse(null);
+    
         if(alumno_existente == null && asesor_existente == null){
             if(usuario.getJerarquia().equals("alumno")){
                 Alumnos alumno = new Alumnos(usuario.getCorreo(), usuario.getContrasena(), usuario.getNombre(), usuario.getImagen());
@@ -41,16 +41,16 @@ public class UsuarioServices {
         else{
             return false;
         }
-
+    
         return true;
     }
-
+    
     public List<String> ingresarUsuario(String correo){
-        Alumnos alumno_existente = alumnos_repository.findByCorreoAlumno(correo);
-        Asesores asesor_existente = asesores_repository.findByCorreoAsesor(correo);
-
+        Alumnos alumno_existente = alumnos_repository.findById(correo).orElse(null);
+        Asesores asesor_existente = asesores_repository.findById(correo).orElse(null);
+    
         List<String> datos = new ArrayList<>();
-
+    
         if(alumno_existente != null){
             datos.add(alumno_existente.getContrasena_alumno());
             datos.add("alumno");
@@ -61,7 +61,7 @@ public class UsuarioServices {
             datos.add("asesor");
             return datos;
         }
-
+    
         return null;
     }
 }
