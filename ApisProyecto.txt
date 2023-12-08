@@ -16,6 +16,14 @@ Registro de feria
 
 Llenado de formulario POST(id_alumno, id_asesor, nombre_feria, fecha_feria, id_proyecto, premio, patrocinador, apoyo otorgado; ok)
 
+Informacion de los proyectos del alumno GET(id_alumno; id_proyecto)
+
+Registro de proyecto
+
+Llenado de formulario POST(id_alumno, id_asesor, nombre_proyecto, categoria_proyecto; ok)
+
+Obtener todos los asesores GET( ; id_asesor, nombre_asesor)
+
 VISTA ASESOR
 
 Home

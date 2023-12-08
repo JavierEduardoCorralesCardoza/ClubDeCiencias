@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ccarreguin.ccarreguin.models.Asesores;
 
 @Repository
-public interface AsesoresRepository extends JpaRepository<Asesores, Integer>{
-    Asesores findByCorreoAsesor(String correoAsesor);
+public interface AsesoresRepository extends JpaRepository<Asesores, String>{
 }

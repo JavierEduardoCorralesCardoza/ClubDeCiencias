@@ -15,8 +15,8 @@ public class AlumnoPorProyecto {
     private AlumnoPorProyectoId id;
 
     @ManyToOne
-    @MapsId("alumno_id")
-    @JoinColumn(name = "IDAlumnoProyecto", referencedColumnName = "IDAlumno")
+    @MapsId("alumno_correo")
+    @JoinColumn(name = "IDAlumnoProyecto", referencedColumnName = "CorreoAlumno")
     private Alumnos alumno;
 
     @ManyToOne

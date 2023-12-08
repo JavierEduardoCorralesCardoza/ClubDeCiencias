@@ -21,4 +21,15 @@ public class AlumnoPorProyectoServices {
     public List<AlumnoPorProyecto> obtenerAlumnoPorProyecto(){
         return alumno_proyecto_repository.findAll();
     }
+
+    public List<AlumnoPorProyecto> obtenerProyectosDeAlumno(String correo){
+        return alumno_proyecto_repository.findProyectosByCorreoAlumno(correo);
+    }
+
+    public boolean postAlumnoPorProyecto(AlumnoPorProyecto alumno_por_proyecto){
+
+        alumno_proyecto_repository.save(alumno_por_proyecto);
+
+        return true;
+    }
 }

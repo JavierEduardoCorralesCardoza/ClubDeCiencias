@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import registroDeUsuarios from "../Services/registroDeUsuarios";
 import { Navigate } from "react-router-dom";
+import informacionDeUsuario from "../Services/informacionDeUsuario";
 
 function SignUp(){
     const [usuario, setUsuario] = useState({correo:"", contrasena:"", nombre:"", jerarquia:""});
     const [navegar, setNavegar] = useState(false);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const res = await registroDeUsuarios(usuario);
+        console.log(res);
+        setNavegar(true);
+    }
 
     if(navegar){
         if(usuario.jerarquia === "alumno"){
@@ -15,11 +23,7 @@ function SignUp(){
 
     return(
         <div>
-            <form onSubmit={(event) => {
-                event.preventDefault();
-                registroDeUsuarios(usuario);
-                setNavegar(true);
-            }}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Correo:
                     <input type="text" value={usuario.correo} onChange={e => setUsuario({...usuario, correo:e.target.value})}/>

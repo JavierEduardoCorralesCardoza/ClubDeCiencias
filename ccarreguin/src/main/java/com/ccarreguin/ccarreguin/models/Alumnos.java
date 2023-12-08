@@ -15,12 +15,8 @@ import jakarta.persistence.Table;
 public class Alumnos {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDAlumno")
-    private int id_alumno;
-
     @Column(name = "CorreoAlumno")
-    private String correoAlumno;
+    private String correo_alumno;
 
     @Column(name = "ContrasenaAlumno")
     private String contrasena_alumno;
@@ -40,17 +36,16 @@ public class Alumnos {
     public Alumnos() {
     }
     
-    public Alumnos(String correoAlumno, String contrasena_alumno, String nombre_alumno, String imagen_alumno) {
-        this.correoAlumno = correoAlumno;
+    public Alumnos(String correo_alumno, String contrasena_alumno, String nombre_alumno, String imagen_alumno) {
+        this.correo_alumno = correo_alumno;
         this.contrasena_alumno = contrasena_alumno;
         this.nombre_alumno = nombre_alumno;
         this.imagen_alumno = imagen_alumno;
     }
 
-    public Alumnos(int id_alumno, String correoAlumno, String contrasena_alumno, String nombre_alumno,
+    public Alumnos(String correo_alumno, String contrasena_alumno, String nombre_alumno,
             String imagen_alumno, List<AlumnoPorProyecto> proyectos, List<AlumnoPorFeria> ferias) {
-        this.id_alumno = id_alumno;
-        this.correoAlumno = correoAlumno;
+        this.correo_alumno = correo_alumno;
         this.contrasena_alumno = contrasena_alumno;
         this.nombre_alumno = nombre_alumno;
         this.imagen_alumno = imagen_alumno;
@@ -58,12 +53,12 @@ public class Alumnos {
         this.ferias = ferias;
     }
 
-    public String getCorreoAlumno() {
-        return correoAlumno;
+    public String getCorreo_alumno() {
+        return correo_alumno;
     }
 
-    public void setCorreoAlumno(String correoAlumno) {
-        this.correoAlumno = correoAlumno;
+    public void setCorreo_alumno(String correo_alumno) {
+        this.correo_alumno = correo_alumno;
     }
 
     public String getContrasena_alumno() {
@@ -80,14 +75,6 @@ public class Alumnos {
 
     public void setImagen_alumno(String imagen_alumno) {
         this.imagen_alumno = imagen_alumno;
-    }
-
-    public int getId_alumno() {
-        return id_alumno;
-    }
-
-    public void setId_alumno(int id_alumno) {
-        this.id_alumno = id_alumno;
     }
 
     public String getNombre_alumno() {
