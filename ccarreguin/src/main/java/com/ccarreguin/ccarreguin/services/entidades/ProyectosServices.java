@@ -21,4 +21,8 @@ public class ProyectosServices {
     public List<Proyectos> obtenerProyectos(){
         return proyectos_repository.findAll();
     }
+
+    public Proyectos getProyecto(int id){
+        return proyectos_repository.findById(id).orElse(null);
+    }
 }

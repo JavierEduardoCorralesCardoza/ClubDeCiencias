@@ -28,7 +28,8 @@ function Alumno(){
         <div>
             <h1>Alumno</h1>
             <div>
-                <Link to={location.pathname+"/registro"}>Registro de Feria</Link>
+                <Link to={location.pathname+"/registroFeria"}>Registro de Feria</Link>
+                <Link to={location.pathname+"/registroProyecto"}>Registro de Proyecto</Link>
             </div>
             <div>
                 <p>{alumno.id_alumno}</p>

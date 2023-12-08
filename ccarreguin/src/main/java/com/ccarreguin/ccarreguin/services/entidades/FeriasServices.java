@@ -21,4 +21,8 @@ public class FeriasServices {
     public List<Ferias> obtenerFerias(){
         return ferias_repository.findAll();
     }
+
+    public Ferias getFeria(int id){
+        return ferias_repository.findById(id).orElse(null);
+    }
 }

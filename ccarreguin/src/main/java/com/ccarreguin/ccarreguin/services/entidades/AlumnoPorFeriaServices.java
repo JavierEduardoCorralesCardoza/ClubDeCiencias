@@ -18,7 +18,10 @@ public class AlumnoPorFeriaServices {
         this.alumno_feria_repository = alumno_feria_repository;
     }
 
-    public List<AlumnoPorFeria> obtenerAlumnoPorFeria(){
-        return alumno_feria_repository.findAll();
+    public boolean postAlumnoPorFeria(AlumnoPorFeria alumno_por_feria){
+
+        alumno_feria_repository.save(alumno_por_feria);
+
+        return true;
     }
 }

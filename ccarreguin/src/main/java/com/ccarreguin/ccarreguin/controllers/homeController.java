@@ -42,9 +42,12 @@ public class homeController {
     }
 
     @GetMapping("/signin")
-    public ResponseEntity<List<String>> signin(@RequestParam(value = "correo") String correo, @RequestParam(value = "contrasena") String contrasena){
+    public ResponseEntity<List<String>> signin(@RequestParam(value = "id") String correo, @RequestParam(value = "contrasena") String contrasena){
         List<String> res = usuario_services.ingresarUsuario(correo);
 
+        if(res == null){
+            return new ResponseEntity<List<String>>(res, HttpStatus.BAD_REQUEST);
+        }
         if(res.get(0).equals(contrasena)){
             return new ResponseEntity<List<String>>(res, HttpStatus.ACCEPTED);
         }

@@ -54,18 +54,11 @@ CREATE TABLE ProyectoPorFeria(
 CREATE TABLE AlumnoPorFeria(
 	IDAlumnoFeria VARCHAR(45),
     IDFeriaAlumno INT,
-    Premio VARCHAR(45),
+    Premio VARCHAR(45) NULL,
+    Patrocinador VARCHAR(45) NULL,
+    ApoyoOtorgado INT NULL,
 	FOREIGN KEY(IDAlumnoFeria) REFERENCES Alumnos(CorreoAlumno),
     FOREIGN KEY(IDFeriaAlumno) REFERENCES Ferias(IDFeria),
     PRIMARY KEY(IDAlumnoFeria, IDFeriaAlumno)
-);
-
-CREATE TABLE Apoyos(
-	IDApoyo INT PRIMARY KEY AUTO_INCREMENT,
-    Patrocinador VARCHAR(45),
-    ApoyoOtorgado INT,
-    IDAlumnoFeriaApoyo VARCHAR(45),
-    IDFeriaAlumnoApoyo INT,
-    FOREIGN KEY(IDAlumnoFeriaApoyo, IDFeriaAlumnoApoyo) REFERENCES AlumnoPorFeria(IDAlumnoFeria, IDFeriaAlumno)
 );
 

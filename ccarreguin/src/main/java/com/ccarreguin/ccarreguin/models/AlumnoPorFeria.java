@@ -28,6 +28,12 @@ public class AlumnoPorFeria {
     @Column(name = "Premio")
     private String premio;
 
+    @Column(name = "Patrocinador")
+    private String patrocinador;
+
+    @Column(name = "ApoyoOtorgado")
+    private int apoyo_otrogado;
+
     public AlumnoPorFeria() {
     }
 

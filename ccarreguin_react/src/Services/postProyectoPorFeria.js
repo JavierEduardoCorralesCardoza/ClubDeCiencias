@@ -1,6 +1,6 @@
-const API_URL = "http://localhost:3001/alumnoproyecto/postAlumnoPorProyecto";
+const API_URL = "http://localhost:3001/proyectoferia/postProyectoPorFeria";
 
-async function postAlumnoPorProyecto(alumno_por_proyecto){
+async function postProyectoPorFeria(proyecto_por_feria){
     try{
         const response = await fetch(API_URL, {
             method: "POST",
@@ -9,8 +9,8 @@ async function postAlumnoPorProyecto(alumno_por_proyecto){
             },
             body: JSON.stringify({
                 "id": {
-                    "alumno_correo": alumno_por_proyecto.alumno_correo,
-                    "proyecto_id": alumno_por_proyecto.proyecto_id
+                    "proyecto_id": proyecto_por_feria.proyecto_id,
+                    "feria_id": proyecto_por_feria.feria_id
                 }
             })
         });
@@ -29,4 +29,4 @@ async function postAlumnoPorProyecto(alumno_por_proyecto){
     }
 }
 
-export default postAlumnoPorProyecto;
+export default postProyectoPorFeria;

@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3001/asesores/getAsesores";
 
-async function informacionDeUsuario(){
+async function getAsesores(){
     try{
         const response = await fetch(API_URL, {
             method: "GET",
@@ -23,4 +23,4 @@ async function informacionDeUsuario(){
     }
 }
 
-export default informacionDeUsuario;
+export default getAsesores;

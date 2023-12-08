@@ -21,4 +21,11 @@ public class ProyectoPorFeriaServices {
     public List<ProyectoPorFeria> obtenerProyectoPorFeria(){
         return proyecto_feria_repository.findAll();
     }
+
+    public boolean postProyectoPorFeria(ProyectoPorFeria proyecto_por_feria){
+
+        proyecto_feria_repository.save(proyecto_por_feria);
+
+        return true;
+    }
 }
